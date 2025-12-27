@@ -1,0 +1,296 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Shadow system - computed from base shadow variables */
+  --shadow-2xs: var(--shadow-x) var(--shadow-y) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+  --shadow-xs: var(--shadow-x) var(--shadow-y) var(--shadow-blur) var(--shadow-spread) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+  --shadow-sm: var(--shadow-x) var(--shadow-y) calc(var(--shadow-blur) * 1.5) var(--shadow-spread) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+  --shadow-md: calc(var(--shadow-x) * 2) calc(var(--shadow-y) * 2) calc(var(--shadow-blur) * 3) calc(var(--shadow-spread) - 1px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+  --shadow-lg: calc(var(--shadow-x) * 4) calc(var(--shadow-y) * 4) calc(var(--shadow-blur) * 5) calc(var(--shadow-spread) - 3px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+  --shadow-xl: calc(var(--shadow-x) * 6) calc(var(--shadow-y) * 6) calc(var(--shadow-blur) * 7) calc(var(--shadow-spread) - 5px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+  --shadow-2xl: calc(var(--shadow-x) * 8) calc(var(--shadow-y) * 8) calc(max(0px, var(--shadow-blur) * 9 - 8px)) calc(var(--shadow-spread) - 12px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 250%), transparent);
+  --shadow: var(--shadow-md);
+  --color-shadow-color: var(--shadow-color);
+  --shadow-x: var(--shadow-x);
+  --shadow-y: var(--shadow-y);
+  --shadow-blur: var(--shadow-blur);
+  --shadow-spread: var(--shadow-spread);
+  --shadow-opacity: var(--shadow-opacity);
+}
+
+:root {
+  /* Radius - Soft Neomorphism: 24-28px for cards */
+  --radius: 1.5rem; /* 24px base */
+
+  /* ===== Morandi Color System (Soft Neomorphism) ===== */
+  /* 设计理念: 柔和新拟态 + 卡片式布局 */
+  /* 情感目标: 清新、舒适、无压力、轻松愉悦 */
+
+  /* Main background: 奶油白 #FAF8F5 */
+  --background: #FAF8F5;
+  --foreground: #2D2D2D;
+
+  /* Card: pure white with soft neomorphic shadows */
+  --card: #FFFFFF;
+  --card-foreground: #2D2D2D;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #2D2D2D;
+
+  /* Primary: dark charcoal for buttons (maintains readability) */
+  --primary: #2D2D2D;
+  --primary-foreground: #FFFFFF;
+
+  /* Secondary: 薄荷绿 #C5DDD6 - Primary card backgrounds */
+  --secondary: #C5DDD6;
+  --secondary-foreground: #2D2D2D;
+
+  /* Muted: light cream tone */
+  --muted: #F5F3F0;
+  --muted-foreground: #6B6B6B;
+
+  /* Accent: 米黄色 #E8E4C8 - Emphasis card backgrounds */
+  --accent: #E8E4C8;
+  --accent-foreground: #2D2D2D;
+
+  --destructive: #E57373;
+  --destructive-foreground: #FFFFFF;
+
+  /* Border and input - softer, cream-toned borders */
+  --border: #E8E4DC;
+  --input: #F5F3F0;
+  --ring: #9B7BB8; /* 强调紫 for focus rings */
+
+  /* Chart colors - Wellness palette */
+  --chart-1: #7CB69D;  /* 成功绿 - Walking/Success */
+  --chart-2: #9B7BB8;  /* 强调紫 - Calories/Accent */
+  --chart-3: #C4B896;  /* 米黄色 - Distance/Neutral */
+  --chart-4: #E8A0A0;  /* 淡粉色 - Heart Rate/Alert */
+  --chart-5: #A8C5D9;  /* 辅助蓝 - Auxiliary Data */
+
+  /* Sidebar colors */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #2D2D2D;
+  --sidebar-primary: #2D2D2D;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #C5DDD6; /* 薄荷绿 */
+  --sidebar-accent-foreground: #2D2D2D;
+  --sidebar-border: #E8E4DC;
+  --sidebar-ring: #9B7BB8;
+
+  /* Shadow system - Soft diffuse shadows for neomorphism */
+  /* Target: 0 4px 20px rgba(0, 0, 0, 0.05) */
+  --shadow-x: 0px;
+  --shadow-y: 4px;
+  --shadow-blur: 20px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.05;
+  --shadow-color: #000000;
+
+  /* Spacing system - 4px base unit */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Morandi palette utility colors */
+  --morandi-mint: #C5DDD6;      /* 薄荷绿 - Primary cards */
+  --morandi-lavender: #E8DFF0;  /* 淡紫色 - Secondary cards */
+  --morandi-cream: #E8E4C8;     /* 米黄色 - Accent cards */
+  --morandi-white: #FAF8F5;     /* 奶油白 - Page background */
+  --morandi-success: #7CB69D;   /* 成功绿 - Progress/positive */
+  --morandi-accent: #9B7BB8;    /* 强调紫 - Charts/emphasis */
+}
+
+.dark {
+  /* ===== Dark Mode - Morandi Low-Saturation Tones ===== */
+  /* Strategy: Adjust tones to maintain Morandi style harmony */
+  --background: #1F1D22;
+  --foreground: #F5F3F0;
+
+  --card: #2A2830;
+  --card-foreground: #F5F3F0;
+
+  --popover: #2A2830;
+  --popover-foreground: #F5F3F0;
+
+  /* Primary: soft lavender for dark mode */
+  --primary: #B5A8C9;
+  --primary-foreground: #1F1D22;
+
+  /* Secondary: muted mint green */
+  --secondary: #3A4A42;
+  --secondary-foreground: #C5DDD6;
+
+  /* Muted: low-saturation dark tone */
+  --muted: #35333A;
+  --muted-foreground: #A8A5B0;
+
+  /* Accent: muted cream/gold tone */
+  --accent: #45423A;
+  --accent-foreground: #E8E4C8;
+
+  --destructive: #B55A5A;
+  --destructive-foreground: #FFFFFF;
+
+  /* Border and input - muted, low contrast */
+  --border: #3A3840;
+  --input: #35333A;
+  --ring: #9B7BB8;
+
+  /* Chart colors - Wellness palette (adjusted for dark mode) */
+  --chart-1: #7AA876;  /* Success green - slightly adjusted */
+  --chart-2: #B5A8C9;  /* Accent purple */
+  --chart-3: #C9B89E;  /* Cream/neutral */
+  --chart-4: #C9A8B5;  /* Soft pink */
+  --chart-5: #8AAAC9;  /* Auxiliary blue */
+
+  /* Sidebar colors */
+  --sidebar: #2A2830;
+  --sidebar-foreground: #F5F3F0;
+  --sidebar-primary: #B5A8C9;
+  --sidebar-primary-foreground: #1F1D22;
+  --sidebar-accent: #3A4A42;
+  --sidebar-accent-foreground: #C5DDD6;
+  --sidebar-border: #3A3840;
+  --sidebar-ring: #9B7BB8;
+
+  /* Shadow system - deeper shadows for dark mode */
+  --shadow-x: 0px;
+  --shadow-y: 4px;
+  --shadow-blur: 20px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.25;
+  --shadow-color: #000000;
+
+  /* Spacing system (same as light mode) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Morandi palette utility colors (dark mode adjusted) */
+  --morandi-mint: #3A4A42;
+  --morandi-lavender: #3A3545;
+  --morandi-cream: #45423A;
+  --morandi-white: #2A2830;
+  --morandi-success: #7AA876;
+  --morandi-accent: #9B7BB8;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ===== Animation and Transition Guidelines ===== */
+/* Default transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) */
+/* Bounce effect: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) */
+
+@layer components {
+  /* Card interaction feedback - slight scale + shadow deepen */
+  .card-interactive {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-interactive:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Button interaction feedback - opacity reduce */
+  .btn-interactive {
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-interactive:active {
+    opacity: 0.8;
+  }
+  .btn-interactive:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Progress ring animation helper */
+  .progress-ring-animate {
+    transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Achievement badge styles */
+  .achievement-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: var(--card);
+    border-radius: 20px;
+  }
+  .achievement-badge-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Hide scrollbar for mobile feel */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

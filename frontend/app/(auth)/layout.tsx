@@ -1,0 +1,11 @@
+import type { ReactNode } from "react"
+
+export default function AuthLayout({ children }: { children: ReactNode }) {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted p-4">
+      <div className="w-full max-w-md animate-in fade-in slide-in-from-bottom-4 duration-500">
+        {children}
+      </div>
+    </div>
+  )
+}
