@@ -1,4 +1,4 @@
-#Yet another healthApp
+# Yet another healthApp
 One day with claude to build
 
 ### AI-Powered Health & Nutrition Tracking
