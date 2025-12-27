@@ -17,7 +17,7 @@ One day, one person, one project
 
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-4169E1.svg)
 
-[English](#-english) · [中文](#-中文) · [Demo](#-demo) · [Documentation](#-api-documentation) · [Report Bug](https://github.com/staruhub/Healthapp/issues)
+[Features](#-features) · [Quick Start](#-quick-start) · [Documentation](#-api-documentation) · [中文文档](#-中文文档)
 
 ---
 
