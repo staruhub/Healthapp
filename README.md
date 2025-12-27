@@ -1,4 +1,4 @@
-🏥 HealthApp
+#🏥 HealthApp
 
 ### AI-Powered Health & Nutrition Tracking
 
@@ -389,4 +389,3 @@ pnpm install && pnpm dev
 ⭐ **Star this repo if you find it helpful!** ⭐
 
 </div>
-]]>
