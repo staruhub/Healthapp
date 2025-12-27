@@ -23,26 +23,41 @@
 
 ## 📑 Table of Contents
 
-- [🌐 English](#-english)
-  - [Features](#-features)
-  - [Demo](#-demo)
-  - [Tech Stack](#-tech-stack)
-  - [Quick Start](#-quick-start)
-  - [Installation](#-installation)
-  - [Configuration](#-configuration)
-  - [API Documentation](#-api-documentation)
-  - [Project Structure](#-project-structure)
-- [🇨🇳 中文](#-中文)
-  - [功能特性](#-功能特性)
-  - [快速开始](#-快速开始-1)
-  - [详细安装](#-详细安装)
-  - [环境配置](#-环境配置)
-  - [项目结构](#-项目结构)
+<details open>
+<summary><b>🌐 English</b></summary>
+
+- [Features](#-features)
+- [Demo](#-demo)
+- [Tech Stack](#️-tech-stack)
+- [Quick Start](#-quick-start)
+- [Installation](#-installation)
+- [Configuration](#️-configuration)
+- [API Documentation](#-api-documentation)
+- [Project Structure](#-project-structure)
+
+</details>
+
+<details open>
+<summary><b>🇨🇳 中文</b></summary>
+
+- [功能特性](#-功能特性)
+- [快速开始](#-快速开始-1)
+- [详细安装](#-详细安装)
+- [环境配置](#️-环境配置)
+- [项目结构](#-项目结构-1)
+
+</details>
+
+<details open>
+<summary><b>📖 More</b></summary>
+
 - [FAQ](#-faq)
 - [Troubleshooting](#-troubleshooting)
 - [Contributing](#-contributing)
 - [License](#-license)
 - [Contact](#-contact)
+
+</details>
 
 ---
 
@@ -63,58 +78,31 @@
 
 ### 🎬 Demo
 
-<div align="center">
-
-> 📸 *Screenshots coming soon*
-
-| Dashboard | Food Log | AI Chat |
-|-----------|----------|---------|
-| ![Dashboard](https://via.placeholder.com/250x150?text=Dashboard) | ![Food Log](https://via.placeholder.com/250x150?text=Food+Log) | ![AI Chat](https://via.placeholder.com/250x150?text=AI+Chat) |
-
-</div>
+> 🚧 **Screenshots coming soon** - The application is fully functional. Run locally to explore all features!
 
 ### 🛠️ Tech Stack
 
-<table>
-<tr>
-<td align="center" width="50%">
+#### Frontend
 
-**Frontend**
+| Technology | Version | Description |
+|:-----------|:-------:|:------------|
+| [Next.js](https://nextjs.org/) | `16.x` | React framework with App Router |
+| [React](https://react.dev/) | `19.x` | UI library |
+| [TailwindCSS](https://tailwindcss.com/) | `4.x` | Utility-first CSS |
+| [Zustand](https://zustand-demo.pmnd.rs/) | `5.x` | State management |
+| [TanStack Query](https://tanstack.com/query) | `5.x` | Server state management |
+| [Radix UI](https://www.radix-ui.com/) | `latest` | Accessible components |
 
-</td>
-<td align="center" width="50%">
+#### Backend
 
-**Backend**
-
-</td>
-</tr>
-<tr>
-<td>
-
-| Technology | Version |
-|------------|---------|
-| [Next.js](https://nextjs.org/) | 16.x |
-| [React](https://react.dev/) | 19.x |
-| [TailwindCSS](https://tailwindcss.com/) | 4.x |
-| [Zustand](https://zustand-demo.pmnd.rs/) | 5.x |
-| [TanStack Query](https://tanstack.com/query) | 5.x |
-| [Radix UI](https://www.radix-ui.com/) | Latest |
-
-</td>
-<td>
-
-| Technology | Version |
-|------------|---------|
-| [FastAPI](https://fastapi.tiangolo.com/) | 0.115+ |
-| [PostgreSQL](https://www.postgresql.org/) | 15+ |
-| [SQLAlchemy](https://www.sqlalchemy.org/) | 2.0 (Async) |
-| [Alembic](https://alembic.sqlalchemy.org/) | 1.14+ |
-| [Pydantic](https://pydantic.dev/) | 2.x |
-| [OpenAI API](https://openai.com/) | GPT-4 |
-
-</td>
-</tr>
-</table>
+| Technology | Version | Description |
+|:-----------|:-------:|:------------|
+| [FastAPI](https://fastapi.tiangolo.com/) | `0.115+` | Python web framework |
+| [PostgreSQL](https://www.postgresql.org/) | `15+` | Database |
+| [SQLAlchemy](https://www.sqlalchemy.org/) | `2.0` | Async ORM |
+| [Alembic](https://alembic.sqlalchemy.org/) | `1.14+` | Database migrations |
+| [Pydantic](https://pydantic.dev/) | `2.x` | Data validation |
+| [OpenAI API](https://openai.com/) | `GPT-4` | AI integration |
 
 ### 🚀 Quick Start
 
@@ -404,7 +392,7 @@ Healthapp/
 │
 ├── 📂 frontend/                # Next.js 前端
 │   ├── 📂 app/                # 页面路由
-│   ├── �� components/         # React 组件
+│   ├── 📂 components/         # React 组件
 │   ├── 📂 hooks/              # 自定义 Hooks
 │   ├── 📂 store/              # 状态管理
 │   └── 📂 types/              # TypeScript 类型
