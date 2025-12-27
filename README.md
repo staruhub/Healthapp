@@ -1,18 +1,22 @@
-<![CDATA[<div align="center">
-
-# 🏥 HealthApp
+🏥 HealthApp
 
 ### AI-Powered Health & Nutrition Tracking
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-20+-339933.svg)](https://nodejs.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg)](https://fastapi.tiangolo.com/)
-[![Next.js](https://img.shields.io/badge/Next.js-16.1-black.svg)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.2-61DAFB.svg)](https://react.dev/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-4169E1.svg)](https://www.postgresql.org/)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
-[Features](#-features) · [Quick Start](#-quick-start) · [Documentation](#-api-documentation) · [中文文档](#-中文文档)
+![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)
+
+![Node.js](https://img.shields.io/badge/Node.js-20+-339933.svg)
+
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg)
+
+![Next.js](https://img.shields.io/badge/Next.js-16.1-black.svg)
+
+![React](https://img.shields.io/badge/React-19.2-61DAFB.svg)
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-4169E1.svg)
+
+[Features](https://www.notion.so/2d6c91e449d880119014d22f6ab1ffad?pvs=21) · [Quick Start](https://www.notion.so/2d6c91e449d880119014d22f6ab1ffad?pvs=21) · [Documentation](https://www.notion.so/2d6c91e449d880119014d22f6ab1ffad?pvs=21) · [中文文档](https://www.notion.so/2d6c91e449d880119014d22f6ab1ffad?pvs=21)
 
 ---
 
@@ -24,18 +28,20 @@
 
 ## ⚠️ Security Notice
 
-> **Important**: Please ensure you're using the latest security-patched versions:
+> Important: Please ensure you're using the latest security-patched versions:
+> 
 > - Next.js: `16.0.10+` or `16.1.x` (CVE-2025-66478)
 > - React: `19.2.3+` (CVE-2025-55182, CVE-2025-55183, CVE-2025-55184)
 > 
 > Run `npm audit` regularly and keep dependencies updated.
+> 
 
 ---
 
 ## ✨ Features
 
 | Feature | Description |
-|---------|-------------|
+| --- | --- |
 | 🍽️ **Smart Food Logging** | AI-powered food recognition with automatic nutrition calculation |
 | ⚖️ **Body Metrics** | Track weight, BMI, body fat percentage, and fitness progress |
 | 🏋️ **Workout Tracking** | Log exercises with duration, calories burned, and intensity |
@@ -52,7 +58,7 @@
 ### Frontend
 
 | Technology | Version | Description |
-|:-----------|:-------:|:------------|
+| --- | --- | --- |
 | [Next.js](https://nextjs.org/) | `16.1.x` | React framework with App Router & Turbopack |
 | [React](https://react.dev/) | `19.2.x` | UI library with Actions & Server Components |
 | [TailwindCSS](https://tailwindcss.com/) | `4.x` | Utility-first CSS (CSS-first config) |
@@ -63,7 +69,7 @@
 ### Backend
 
 | Technology | Version | Description |
-|:-----------|:-------:|:------------|
+| --- | --- | --- |
 | [FastAPI](https://fastapi.tiangolo.com/) | `0.115+` | High-performance Python web framework |
 | [PostgreSQL](https://www.postgresql.org/) | `15+` | Relational database |
 | [SQLAlchemy](https://www.sqlalchemy.org/) | `2.0` | Async ORM |
@@ -78,18 +84,18 @@
 ### Prerequisites
 
 | Tool | Version | Installation |
-|------|---------|--------------|
+| --- | --- | --- |
 | Python | 3.11+ | [python.org](https://www.python.org/downloads/) |
 | Node.js | 20+ | [nodejs.org](https://nodejs.org/) |
 | pnpm | 9+ | `npm install -g pnpm` |
-| uv | Latest | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
+| uv | Latest | `curl -LsSf <https://astral.sh/uv/install.sh> \| sh` |
 | Docker | Latest | [docker.com](https://www.docker.com/) |
 
 ### One-Command Setup
 
 ```bash
 # Clone and enter directory
-git clone https://github.com/staruhub/Healthapp.git && cd Healthapp
+git clone <https://github.com/staruhub/Healthapp.git> && cd Healthapp
 
 # Start database
 docker-compose up -d
@@ -102,11 +108,13 @@ uv run uvicorn app.main:app --reload --port 8001
 # Terminal 2: Frontend
 cd frontend && echo "NEXT_PUBLIC_API_URL=http://localhost:8001" > .env.local
 pnpm install && pnpm dev
+
 ```
 
 🎉 **Access the app:**
-- 🌐 Frontend: [http://localhost:3000](http://localhost:3000)
-- 📚 API Docs: [http://localhost:8001/docs](http://localhost:8001/docs)
+
+- 🌐 Frontend: [http://localhost:3000](http://localhost:3000/)
+- 📚 API Docs: http://localhost:8001/docs
 
 ---
 
@@ -114,7 +122,7 @@ pnpm install && pnpm dev
 
 ### Backend `.env`
 
-```env
+```
 # Database
 DATABASE_URL=postgresql+asyncpg://healthapp:healthapp_dev_2024@localhost:5432/healthapp_db
 
@@ -126,14 +134,16 @@ AI_MODE=mock
 OPENAI_API_KEY=sk-...  # Required when AI_MODE=real
 
 # CORS
-CORS_ORIGINS=["http://localhost:3000"]
+CORS_ORIGINS=["<http://localhost:3000>"]
+
 ```
 
 ### Frontend `.env.local`
 
-```env
+```
 NEXT_PUBLIC_API_URL=http://localhost:8001
 NEXT_PUBLIC_AI_MODE=mock
+
 ```
 
 ---
@@ -143,7 +153,7 @@ NEXT_PUBLIC_AI_MODE=mock
 ### Endpoints Overview
 
 | Method | Endpoint | Description |
-|:------:|----------|-------------|
+| --- | --- | --- |
 | `POST` | `/api/v1/auth/register` | User registration |
 | `POST` | `/api/v1/auth/login` | User login |
 | `POST` | `/api/v1/auth/refresh` | Refresh access token |
@@ -154,6 +164,7 @@ NEXT_PUBLIC_AI_MODE=mock
 | `POST` | `/api/v1/chat` | AI chat assistant |
 
 Interactive documentation available at:
+
 - **Swagger UI**: `GET /docs`
 - **ReDoc**: `GET /redoc`
 - **Health Check**: `GET /health`
@@ -197,6 +208,7 @@ Healthapp/
 ├── openspec/                  # Project Specifications
 ├── docker-compose.yml
 └── README.md
+
 ```
 
 ---
@@ -215,6 +227,7 @@ docker-compose restart
 
 # View logs
 docker-compose logs postgres
+
 ```
 
 </details>
@@ -231,6 +244,7 @@ kill -9 <PID>
 
 # Or use different port
 uv run uvicorn app.main:app --reload --port 8002
+
 ```
 
 </details>
@@ -238,7 +252,7 @@ uv run uvicorn app.main:app --reload --port 8002
 <details>
 <summary><b>Frontend Cannot Connect to Backend</b></summary>
 
-1. Verify backend: `curl http://localhost:8001/health`
+1. Verify backend: `curl <http://localhost:8001/health`>
 2. Check `NEXT_PUBLIC_API_URL` in `.env.local`
 3. Verify CORS settings in backend `.env`
 4. Clear browser cache and restart
@@ -252,6 +266,7 @@ uv run uvicorn app.main:app --reload --port 8002
 # Clear stored tokens in browser
 localStorage.removeItem('auth-storage')
 # Then refresh the page
+
 ```
 
 </details>
@@ -274,6 +289,7 @@ localStorage.removeItem('auth-storage')
 ```bash
 dropdb healthapp_db && createdb healthapp_db
 cd backend && uv run alembic upgrade head
+
 ```
 
 </details>
@@ -283,6 +299,7 @@ cd backend && uv run alembic upgrade head
 
 ```bash
 openssl rand -hex 32
+
 ```
 
 </details>
@@ -300,7 +317,7 @@ openssl rand -hex 32
 ### Commit Convention
 
 | Type | Description |
-|------|-------------|
+| --- | --- |
 | `feat` | New feature |
 | `fix` | Bug fix |
 | `docs` | Documentation |
@@ -313,7 +330,7 @@ openssl rand -hex 32
 
 ## 📄 License
 
-This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for details.
+This project is licensed under the **MIT License** - see [LICENSE](https://www.notion.so/LICENSE) for details.
 
 ---
 
@@ -335,7 +352,7 @@ This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for 
 
 ```bash
 # 克隆仓库
-git clone https://github.com/staruhub/Healthapp.git && cd Healthapp
+git clone <https://github.com/staruhub/Healthapp.git> && cd Healthapp
 
 # 启动数据库
 docker-compose up -d
@@ -348,16 +365,17 @@ uv run uvicorn app.main:app --reload --port 8001
 # 启动前端（新终端）
 cd frontend && echo "NEXT_PUBLIC_API_URL=http://localhost:8001" > .env.local
 pnpm install && pnpm dev
+
 ```
 
 ### 环境要求
 
 | 依赖 | 版本 | 安装方式 |
-|------|------|----------|
+| --- | --- | --- |
 | Python | 3.11+ | [python.org](https://www.python.org/downloads/) |
 | Node.js | 20+ | [nodejs.org](https://nodejs.org/) |
 | pnpm | 9+ | `npm install -g pnpm` |
-| uv | 最新版 | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
+| uv | 最新版 | `curl -LsSf <https://astral.sh/uv/install.sh> \| sh` |
 | Docker | 最新版 | [docker.com](https://www.docker.com/) |
 
 </details>
@@ -366,7 +384,7 @@ pnpm install && pnpm dev
 
 <div align="center">
 
-**[staruhub](https://github.com/staruhub)**
+[**staruhub**](https://github.com/staruhub)
 
 ⭐ **Star this repo if you find it helpful!** ⭐
 
