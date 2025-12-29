@@ -6,7 +6,7 @@ import { StepIndicator } from "@/components/onboarding/step-indicator"
 import { ProfileForm, type ProfileFormData } from "@/components/onboarding/profile-form"
 import { GoalSelector } from "@/components/onboarding/goal-selector"
 import { TargetCalculator } from "@/components/onboarding/target-calculator"
-import { useUpdateProfile } from "@/hooks/use-profile"
+import { useCreateProfile } from "@/hooks/use-profile"
 import type { GoalType } from "@/types/models"
 
 type OnboardingStep = 1 | 2 | 3
@@ -16,7 +16,7 @@ export default function OnboardingPage() {
   const [profileData, setProfileData] = useState<ProfileFormData | null>(null)
   const [goal, setGoal] = useState<GoalType | null>(null)
 
-  const updateProfile = useUpdateProfile()
+  const createProfile = useCreateProfile()
 
   const handleProfileSubmit = (data: ProfileFormData) => {
     setProfileData(data)
@@ -30,7 +30,7 @@ export default function OnboardingPage() {
 
   const handleFinalSubmit = (targetCalories: number) => {
     if (profileData && goal) {
-      updateProfile.mutate({
+      createProfile.mutate({
         ...profileData,
         goal,
         target_calories: targetCalories,
@@ -86,7 +86,7 @@ export default function OnboardingPage() {
                 profile={{ ...profileData, goal }}
                 onSubmit={handleFinalSubmit}
                 onBack={() => setStep(2)}
-                isSubmitting={updateProfile.isPending}
+                isSubmitting={createProfile.isPending}
               />
             )}
           </CardContent>
