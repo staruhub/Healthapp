@@ -15,38 +15,51 @@ from app.config import settings
 router = APIRouter(prefix="/auth", tags=["auth"])
 
 
-@router.post("/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
+@router.post("/register", response_model=TokenResponse, status_code=status.HTTP_201_CREATED)
 async def register(
     user_data: UserRegister,
     db: Annotated[AsyncSession, Depends(get_db)],
 ):
-    """Register a new user."""
+    """Register a new user and return tokens."""
     # Check if email already exists
     result = await db.execute(select(User).where(User.email == user_data.email))
     existing_user = result.scalar_one_or_none()
-    
+
     if existing_user:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
             detail="Email already registered",
         )
-    
+
     # Create new user
     hashed_pw = hash_password(user_data.password)
     new_user = User(
         email=user_data.email,
         hashed_password=hashed_pw,
     )
-    
+
     db.add(new_user)
     await db.flush()
     await db.refresh(new_user)
-    
-    return UserResponse(
-        id=new_user.id,
-        email=new_user.email,
-        is_active=new_user.is_active,
-        profile_completed=False,
+
+    # Create tokens (auto-login after registration)
+    access_token = create_access_token({"sub": str(new_user.id)})
+    refresh_token_str = create_refresh_token({"sub": str(new_user.id)})
+
+    # Store refresh token in database
+    refresh_token = RefreshToken(
+        user_id=new_user.id,
+        token=refresh_token_str,
+        expires_at=datetime.utcnow() + timedelta(days=settings.REFRESH_TOKEN_EXPIRE_DAYS),
+    )
+    db.add(refresh_token)
+    await db.flush()
+
+    return TokenResponse(
+        access_token=access_token,
+        refresh_token=refresh_token_str,
+        token_type="bearer",
+        expires_in=settings.ACCESS_TOKEN_EXPIRE_MINUTES * 60,
     )
 
 
